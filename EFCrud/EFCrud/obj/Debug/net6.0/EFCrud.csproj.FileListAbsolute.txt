@@ -94,3 +94,7 @@ C:\Users\e1154\Documents\_Pessoal\GitHub\EFCrud\EFCrud\EFCrud\EFCrud\obj\Debug\n
 C:\Users\e1154\Documents\_Pessoal\GitHub\EFCrud\EFCrud\EFCrud\EFCrud\obj\Debug\net6.0\EFCrud.pdb
 C:\Users\e1154\Documents\_Pessoal\GitHub\EFCrud\EFCrud\EFCrud\EFCrud\obj\Debug\net6.0\EFCrud.genruntimeconfig.cache
 C:\Users\e1154\Documents\_Pessoal\GitHub\EFCrud\EFCrud\EFCrud\EFCrud\obj\Debug\net6.0\ref\EFCrud.dll
+C:\Users\e1154\Documents\_Pessoal\GitHub\EFCrud\EFCrud\EFCrud\EFCrud\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\e1154\Documents\_Pessoal\GitHub\EFCrud\EFCrud\EFCrud\EFCrud\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\e1154\Documents\_Pessoal\GitHub\EFCrud\EFCrud\EFCrud\EFCrud\bin\Debug\net6.0\StackExchange.Redis.dll
+C:\Users\e1154\Documents\_Pessoal\GitHub\EFCrud\EFCrud\EFCrud\EFCrud\bin\Debug\net6.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll

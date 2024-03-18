@@ -9,8 +9,15 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
+//Add your connectionString and DBContext
 var connectionString = builder.Configuration.GetConnectionString("TvShowContext");
 builder.Services.AddDbContext<TvShowContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddStackExchangeRedisCache(redisOptions =>
+{
+    string connection = builder.Configuration.GetConnectionString("Redis");
+    redisOptions.Configuration = connection;
+});
 
 builder.Services.AddSwaggerGen();
 

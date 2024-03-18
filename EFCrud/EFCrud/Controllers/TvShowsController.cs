@@ -1,6 +1,8 @@
 ﻿using EFCrud.Data;
 using EFCrud.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
 
 namespace EFCrud.Controllers
 {
@@ -9,16 +11,27 @@ namespace EFCrud.Controllers
     public class TvShowsController : ControllerBase
     {
         private readonly TvShowContext _context;
+        private readonly IDistributedCache? _cache;
 
-        public TvShowsController(TvShowContext context)
+        public TvShowsController(TvShowContext context, IDistributedCache cache)
         {
             _context = context;
+            _cache = cache;
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<TvShow>> GetTvShows()
         {
-            return _context.TvShows.ToList();
+            string cachedData = _cache.GetString("cachedData");
+            if (string.IsNullOrEmpty(cachedData))
+            {
+                var tvShows = _context.TvShows.ToList();
+                string serializedObject = JsonConvert.SerializeObject(tvShows);
+                _cache.SetString("cachedData", serializedObject, new DistributedCacheEntryOptions() { AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10) });
+                return tvShows;
+            }
+
+            return JsonConvert.DeserializeObject<List<TvShow>>(cachedData);
         }
 
         [HttpGet("{id}")]
